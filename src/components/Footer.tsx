@@ -18,7 +18,7 @@ export default function Footer() {
       style={{ borderTop: `1px solid ${theme.bg1}` }}
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-        <img src="/logo.png" alt="Mate Creations" className="w-8 h-8 opacity-60" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Mate Creations" className="w-8 h-8 opacity-60" />
 
         <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
           {REPOS.map((r) => (

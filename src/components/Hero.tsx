@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="relative">
         <img
-          src="/logo.png"
+          src={`${import.meta.env.BASE_URL}logo.png`}
           alt="Mate Creations"
           className="w-20 h-20 mb-6 relative z-10 transition-transform duration-300 hover:scale-110 hover:rotate-3"
         />

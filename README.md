@@ -1,73 +1,28 @@
-# React + TypeScript + Vite
+# Mate Creations — showcase site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Showcase for the **Yerba Mate** (dark) and **Tererê** (light) theme family and the
+design system behind them: DTCG tokens compiled with Style Dictionary, WCAG
+contrast checked in both themes.
 
-Currently, two official plugins are available:
+Live: https://harbefas.github.io/matecreations-site/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Moved out of `harbefas.github.io` in September 2026, history intact — that
+domain now hosts the Harbefas site.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19 · Vite · Tailwind · GSAP.
 
-## Expanding the ESLint configuration
+## Commands
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Command              | Action                                              |
+| :------------------- | :-------------------------------------------------- |
+| `npm install`        | Install dependencies                                 |
+| `npm run dev`        | Dev server                                           |
+| `npm run build`      | Build to `./dist/`                                   |
+| `npm run sync:tokens`| Re-vendor tokens from a local `mateCreations` checkout |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+`sync:tokens` needs `~/code/personal/mateCreations` (override with
+`MATECREATIONS=`). It is a local, manual step: the generated
+`src/styles/mate-tokens.css` and `src/theme/tokens.generated.ts` are committed,
+so CI builds without it.
